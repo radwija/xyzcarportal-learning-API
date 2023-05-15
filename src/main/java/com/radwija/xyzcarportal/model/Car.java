@@ -12,13 +12,15 @@ public class Car {
     @Column(name = "car_name")
     String carName;
 
+    String model;
+
     String make;
 
     Long price;
 
-    @CreatedDate
-    @Column(name = "post_date")
-    private String postDate;
+//    @CreatedDate
+//    @Column(name = "post_date")
+//    private String postDate;
 
     public Long getId() {
         return id;
@@ -30,6 +32,14 @@ public class Car {
 
     public String getCarName() {
         return carName;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public void setCarName(String carName) {
@@ -52,11 +62,11 @@ public class Car {
         this.price = price;
     }
 
-    public String getPostDate() {
-        return postDate;
-    }
-
-    public void setPostDate(String postDate) {
-        this.postDate = postDate;
-    }
+//    public String getPostDate() {
+//        return postDate;
+//    }
+//
+//    public void setPostDate(String postDate) {
+//        this.postDate = postDate;
+//    }
 }
