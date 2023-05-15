@@ -1,7 +1,6 @@
 package com.radwija.xyzcarportal.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 public class Car {
@@ -14,7 +13,8 @@ public class Car {
 
     String model;
 
-    String make;
+    @Column(name = "make_year")
+    String makeYear;
 
     Long price;
 
@@ -46,12 +46,12 @@ public class Car {
         this.carName = carName;
     }
 
-    public String getMake() {
-        return make;
+    public String getMakeYear() {
+        return makeYear;
     }
 
-    public void setMake(String make) {
-        this.make = make;
+    public void setMakeYear(String makeYear) {
+        this.makeYear = makeYear;
     }
 
     public Long getPrice() {
