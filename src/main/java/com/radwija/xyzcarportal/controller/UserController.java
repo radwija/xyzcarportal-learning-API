@@ -19,33 +19,14 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<String> login(@RequestBody UserLogin userlogin) {
-        Boolean isValid = userService.isValidUser(userlogin.getUsername(), userlogin.getPassword());
+    public ResponseEntity<String> login(@RequestBody User user) {
+        Boolean isValid = userService.isValidUser(user.getUsername(), user.getPassword());
 
         if (isValid) {
-            return ResponseEntity.ok("Login succcessfully!");
+            return ResponseEntity.ok("Login successfully!");
         } else {
             return ResponseEntity.badRequest().body("Incorrect credential!");
         }
     }
-    private static class UserLogin {
-        private String username;
-        private String password;
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-    }
+   
 }
