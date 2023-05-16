@@ -12,11 +12,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String username;
+    private String username;
 
-    String name;
+    private String name;
 
-    String email;
+    private String email;
 
     @JsonIgnore
     private String Password;
