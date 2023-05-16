@@ -1,5 +1,6 @@
 package com.radwija.xyzcarportal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class User {
 
     String email;
 
-    String Password;
+    @JsonIgnore
+    private String Password;
 
     public Long getId() {
         return id;

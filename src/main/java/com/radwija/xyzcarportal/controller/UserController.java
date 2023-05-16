@@ -13,19 +13,20 @@ public class UserController {
     private UserServiceImpl userService;
 
     @PostMapping("register")
-    public String register(@RequestBody User user) {
+    public User register(@RequestBody User user) {
         userService.register(user);
-        return "Register successfully!";
+        return user;
     }
 
     @PostMapping("login")
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<User> login(@RequestBody User user) {
         Boolean isValid = userService.isValidUser(user.getUsername(), user.getPassword());
 
         if (isValid) {
-            return ResponseEntity.ok("Login successfully!");
+            User loggedInUser = userService.findByUsername(user.getUsername());
+            return ResponseEntity.ok(loggedInUser);
         } else {
-            return ResponseEntity.badRequest().body("Incorrect credential!");
+            return ResponseEntity.badRequest().build();
         }
     }
    
