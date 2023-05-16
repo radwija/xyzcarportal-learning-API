@@ -1,7 +1,7 @@
 package com.radwija.xyzcarportal.controller;
 
 import com.radwija.xyzcarportal.model.User;
-import com.radwija.xyzcarportal.service.impl.UserServiceImpl;
+import com.radwija.xyzcarportal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/rest/")
 public class UserController {
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @PostMapping("register")
     public String register(@RequestBody User user) {
