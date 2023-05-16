@@ -18,9 +18,9 @@ public class CarController {
     private CarServiceImpl carService;
 
     @PostMapping("saveCar")
-    public String saveCar(@RequestBody Car car) {
+    public Car saveCar(@RequestBody Car car) {
         carService.saveCar(car);
-        return "Car saved! (From controller)";
+        return car;
     }
 
     @GetMapping("search")
