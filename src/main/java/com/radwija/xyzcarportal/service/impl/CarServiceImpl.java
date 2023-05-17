@@ -16,7 +16,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car saveCar(Car car) {
-        carRepository.save(car);
         return carRepository.save(car);
     }
 
@@ -35,7 +34,13 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Optional<Car> viewCarDetail(Long cId) {
-        return carRepository.findById(cId);
+    public Optional<Car> viewCarDetail(Long cid) {
+        Optional<Car> selectedCar = carRepository.findById(cid);
+        if (selectedCar.isPresent()) {
+            return carRepository.findById(cid);
+        } else {
+            return null;
+        }
+
     }
 }

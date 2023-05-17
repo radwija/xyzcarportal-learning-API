@@ -32,9 +32,13 @@ public class CarController {
     }
 
     @GetMapping("viewCar")
-    public ResponseEntity<Car> carDetail(@RequestParam Long cId) {
-        Optional<Car> carInfo = carService.viewCarDetail(cId);
+    public ResponseEntity<Car> carDetail(@RequestParam Long cid) {
+        Optional<Car> carInfo = carService.viewCarDetail(cid);
 
-        return ResponseEntity.ok(carInfo.get());
+        if (carInfo.isPresent()) {
+            return ResponseEntity.ok(carInfo.get());
+        } else {
+            return null;
+        }
     }
 }
