@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService {
-    void register(User user);
+    User register(User user);
     Boolean isValidUser(String username, String password);
 
     User findByUsername(String username);
