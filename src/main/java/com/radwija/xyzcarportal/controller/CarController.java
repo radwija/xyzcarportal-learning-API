@@ -35,10 +35,10 @@ public class CarController {
     public ResponseEntity<Car> carDetail(@RequestParam Long cid) {
         Optional<Car> carInfo = carService.viewCarDetail(cid);
 
-        if (carInfo.isPresent()) {
-            return ResponseEntity.ok(carInfo.get());
-        } else {
+        if (carInfo.isEmpty()) {
             return null;
+        } else {
+            return ResponseEntity.ok(carInfo.get());
         }
     }
 }

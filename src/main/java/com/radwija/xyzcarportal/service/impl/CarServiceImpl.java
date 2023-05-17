@@ -35,12 +35,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Optional<Car> viewCarDetail(Long cid) {
-        Optional<Car> selectedCar = carRepository.findById(cid);
-        if (selectedCar.isPresent()) {
-            return carRepository.findById(cid);
-        } else {
-            return null;
-        }
-
+        return carRepository.findById(cid);
     }
 }
