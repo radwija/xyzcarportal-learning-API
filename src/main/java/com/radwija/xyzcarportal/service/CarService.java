@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public interface CarService {
-    String saveCar(Car car);
+    Car saveCar(Car car);
 
     List<Car> searchCar(String by, String keyword);
 

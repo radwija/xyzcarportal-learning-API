@@ -15,9 +15,9 @@ public class CarServiceImpl implements CarService {
     private CarRepository carRepository;
 
     @Override
-    public String saveCar(Car car) {
+    public Car saveCar(Car car) {
         carRepository.save(car);
-        return "Car saved!";
+        return carRepository.save(car);
     }
 
     @Override
