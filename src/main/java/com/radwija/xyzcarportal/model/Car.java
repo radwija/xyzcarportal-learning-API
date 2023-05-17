@@ -1,26 +1,28 @@
 package com.radwija.xyzcarportal.model;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "car_name")
-    String carName;
+    private String carName;
 
-    String model;
+    private String model;
 
     @Column(name = "make_year")
-    String makeYear;
+    private String makeYear;
 
-    Long price;
-
+    private Long price;
 //    @CreatedDate
 //    @Column(name = "post_date")
-//    private String postDate;
+//    private LocalDateTime postDate = LocalDateTime.now();
 
     public Long getId() {
         return id;
@@ -62,11 +64,11 @@ public class Car {
         this.price = price;
     }
 
-//    public String getPostDate() {
+//    public LocalDateTime getPostDate() {
 //        return postDate;
 //    }
 //
-//    public void setPostDate(String postDate) {
+//    public void setPostDate(LocalDateTime postDate) {
 //        this.postDate = postDate;
 //    }
 }
