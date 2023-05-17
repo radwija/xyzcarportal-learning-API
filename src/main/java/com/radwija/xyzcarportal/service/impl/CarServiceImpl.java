@@ -20,7 +20,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> searchCar(String by, String keyword) {
+    public List<Car> searchCar(String by, String keyword, Long min, Long max) {
         if (by.equalsIgnoreCase("carName")) {
             return carRepository.searchCarByName(keyword);
         } else if (by.equalsIgnoreCase("makeYear")) {
@@ -28,9 +28,16 @@ public class CarServiceImpl implements CarService {
         } else if (by.equalsIgnoreCase("model")) {
             return carRepository.searchCarByModel(keyword);
         } else if (by.equalsIgnoreCase("price")) {
-            return carRepository.searchCarByPrice(keyword);
+            if (min != null && max == null) {
+                return carRepository.searchCarByMinPrice(min);
+            } else if (min == null && max != null) {
+                return carRepository.searchCarByMaxPrice(max);
+            } else {
+                return carRepository.searchCarByRangePrice(min, max);
+            }
+        } else {
+            return null;
         }
-        return null;
     }
 
     @Override

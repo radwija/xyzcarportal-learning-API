@@ -24,8 +24,11 @@ public class CarController {
     }
 
     @GetMapping("search")
-    public List<Car> searchCars(@RequestParam("by") String by, @RequestParam("keyword") String keyword) {
-        List<Car> searchedCars = carService.searchCar(by, keyword);
+    public List<Car> searchCars(@RequestParam("by") String by,
+                                @RequestParam(value = "keyword", required = false) String keyword,
+                                @RequestParam(value = "min", required = false) Long min,
+                                @RequestParam(value = "max", required = false) Long max) {
+        List<Car> searchedCars = carService.searchCar(by, keyword, min, max);
 
         System.out.println(searchedCars);
         return searchedCars;

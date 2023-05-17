@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface CarService {
     Car saveCar(Car car);
 
-    List<Car> searchCar(String by, String keyword);
+    List<Car> searchCar(String by, String keyword, Long min, Long max);
 
     Optional<Car> viewCarDetail(Long cId);
 }
