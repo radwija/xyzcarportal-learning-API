@@ -20,9 +20,9 @@ public class Car {
     private String makeYear;
 
     private Long price;
-//    @CreatedDate
-//    @Column(name = "post_date")
-//    private LocalDateTime postDate = LocalDateTime.now();
+    @CreatedDate
+    @Column(name = "post_date")
+    private LocalDateTime postDate = LocalDateTime.now();
 
     public Long getId() {
         return id;
@@ -64,11 +64,11 @@ public class Car {
         this.price = price;
     }
 
-//    public LocalDateTime getPostDate() {
-//        return postDate;
-//    }
-//
-//    public void setPostDate(LocalDateTime postDate) {
-//        this.postDate = postDate;
-//    }
+    public LocalDateTime getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(LocalDateTime postDate) {
+        this.postDate = postDate;
+    }
 }
