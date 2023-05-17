@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean isValidUser(String username, String password) {
+    public Boolean isValidUser(String username, String inputPassword) {
 
         List<User> users = userRepository.findByUsername(username);
 
         if (users.size() == 1) {
             User user = users.get(0);
-            return user.getPassword().equals(password);
+            return user.getPassword().equals(inputPassword);
         } else {
             return false;
         }
