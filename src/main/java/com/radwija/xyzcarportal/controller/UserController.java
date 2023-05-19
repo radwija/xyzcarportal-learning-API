@@ -1,5 +1,6 @@
 package com.radwija.xyzcarportal.controller;
 
+import com.radwija.xyzcarportal.dto.BaseResponseDto;
 import com.radwija.xyzcarportal.dto.UserDto;
 import com.radwija.xyzcarportal.dto.UserLoginDto;
 import com.radwija.xyzcarportal.dto.UserRegisterDto;
@@ -22,24 +23,24 @@ public class UserController {
 
     @PostMapping("register")
     public ResponseEntity<?> register(@RequestBody UserRegisterDto userRegisterDto) {
-        final UserDto user = userService.register(userRegisterDto);
+        final BaseResponseDto<?> response = userService.register(userRegisterDto);
 
-        if (user == null) {
-            return ResponseEntity.badRequest().body("Failed to register");
+        if (response.getCode() == 400) {
+            return ResponseEntity.badRequest().body(response);
         }
 
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody UserLoginDto userLoginDto) {
-        UserDto loggedInUser = userService.findByUsername(userLoginDto);
+        final BaseResponseDto<?> response = userService.findByUsername(userLoginDto);
 
-        if (loggedInUser == null) {
-            return ResponseEntity.badRequest().body("Login Failed ot User Not Found");
+        if (response.getCode() == 400) {
+            return ResponseEntity.badRequest().body(response);
         }
 
-        return ResponseEntity.ok(loggedInUser);
+        return ResponseEntity.ok(response);
     }
 
 }
