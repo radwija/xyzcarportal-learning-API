@@ -1,12 +1,12 @@
 package com.radwija.xyzcarportal.service;
 
+import com.radwija.xyzcarportal.dto.BaseResponseDto;
+import com.radwija.xyzcarportal.dto.UserDto;
+import com.radwija.xyzcarportal.dto.UserLoginDto;
+import com.radwija.xyzcarportal.dto.UserRegisterDto;
 import com.radwija.xyzcarportal.model.User;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface UserService {
-    User register(User user);
-    Boolean isValidUser(String username, String inputPassword);
-
-    User findByUsername(String username);
+    BaseResponseDto<?> register(UserRegisterDto userRegisterDto);
+    BaseResponseDto<?> findByUsername(UserLoginDto userLoginDto);
 }
