@@ -15,4 +15,6 @@ public interface CarService {
     List<Car> searchCar(String by, String keyword, Long min, Long max);
 
     Optional<Car> viewCarDetail(Long cId);
+
+    List<Car> showAllCars();
 }

@@ -41,6 +41,11 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public List<Car> showAllCars() {
+        return carRepository.findAll();
+    }
+
+    @Override
     public Optional<Car> viewCarDetail(Long cid) {
         return carRepository.findById(cid);
     }

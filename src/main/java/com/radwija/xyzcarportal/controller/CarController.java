@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/rest/")
+@CrossOrigin("http://localhost:3000")
 public class CarController {
     @Autowired
     private CarServiceImpl carService;
@@ -21,6 +22,11 @@ public class CarController {
     public Car saveCar(@RequestBody Car car) {
         carService.saveCar(car);
         return car;
+    }
+
+    @GetMapping("cars")
+    public List<Car> showAllCars() {
+        return carService.showAllCars();
     }
 
     @GetMapping("search")
