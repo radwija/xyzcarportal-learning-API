@@ -13,7 +13,7 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     @Query(value = "SELECT c FROM Car c WHERE c.carName LIKE '%' || :keyword || '%'")
     public List<Car> searchCarByName(@Param("keyword") String keyword);
 
-    @Query(value = "SELECT c FROM Car c WHERE c.makeYear LIKE '%' || :keyword || '%'")
+    @Query(value = "SELECT c FROM Car c WHERE c.makeYear = :keyword")
     public List<Car> searchCarByMakeYear(@Param("keyword") String keyword);
 
     @Query(value = "SELECT c FROM Car c WHERE c.model LIKE '%' || :keyword || '%'")
