@@ -1,6 +1,7 @@
 package com.radwija.xyzcarportal.controller;
 
 import com.radwija.xyzcarportal.model.Car;
+import com.radwija.xyzcarportal.service.CarService;
 import com.radwija.xyzcarportal.service.impl.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +17,7 @@ import java.util.Optional;
 @CrossOrigin("http://localhost:3000")
 public class CarController {
     @Autowired
-    private CarServiceImpl carService;
+    private CarService carService;
 
     @PostMapping("saveCar")
     public Car saveCar(@RequestBody Car car) {
